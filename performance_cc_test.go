@@ -122,19 +122,19 @@ func TestAbs_Invoke(t *testing.T) {
 
 	}*/
 
- func TestAbs_Query(t *testing.T){
-	 absChaincode := new(AbsChaincode)
-	 stub := shim.NewMockStub("abs", absChaincode)
+func TestAbs_Query(t *testing.T) {
+	absChaincode := new(AbsChaincode)
+	stub := shim.NewMockStub("abs", absChaincode)
 
-	 //init must be invoked first
-	 checkInit(t, stub, [][]byte{[]byte("init")})
-	 //args:=[][]byte{[]byte("QUERY"), []byte("160815609421112015_CAT_ASSET_UPLOAD")}
-	 //checkQuery(t, stub, "160815609421112015_CAT_ASSET_UPLOAD", "")
+	//init must be invoked first
+	checkInit(t, stub, [][]byte{[]byte("init")})
+	//args:=[][]byte{[]byte("QUERY"), []byte("160815609421112015_CAT_ASSET_UPLOAD")}
+	//checkQuery(t, stub, "160815609421112015_CAT_ASSET_UPLOAD", "")
 
-	 bizContent := "{\"assetDetails\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
-	 assetUploadArgs := [][]byte{[]byte("ASSET_UPLOAD"), []byte("jyzb"), []byte("160815609421112015"), []byte("jyzb0001"), []byte("CAT_ASSET_UPLOAD"), []byte(""), []byte(""), []byte(bizContent)}
-	 checkInvokeAssetUpload(t, stub, assetUploadArgs)
+	bizContent := "{\"assetDetails\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
+	assetUploadArgs := [][]byte{[]byte("ASSET_UPLOAD"), []byte("jyzb"), []byte("160815609421112015"), []byte("jyzb0001"), []byte("CAT_ASSET_UPLOAD"), []byte(""), []byte(""), []byte(bizContent)}
+	checkInvokeAssetUpload(t, stub, assetUploadArgs)
 
 	response := "{\"Key\":\"160815609421112015_CAT_ASSET_UPLOAD\",\"Value\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
-	 checkQuery(t, stub, "160815609421112015_CAT_ASSET_UPLOAD", response)
- }
+	checkQuery(t, stub, "160815609421112015_CAT_ASSET_UPLOAD", response)
+}

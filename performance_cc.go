@@ -53,7 +53,7 @@ type BusinessFlow struct {
 type AbsChaincode struct {
 }
 
-func (abs *AbsChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response{
+func (abs *AbsChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	_, args := stub.GetFunctionAndParameters()
 	if len(args) != 0 {
 		return shim.Error(errorCodeIncorrectArgumentNumber + " Incorrect number of arguments. Expecting 0")
@@ -88,16 +88,16 @@ func (abs *AbsChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response{
 
 }
 
-type BizContent struct{
+type BizContent struct {
 	assets []AssetDetails `json:"assets"`
 }
 
-type AssetDetails struct{
-	assetUid string `json:"assetUid"`
+type AssetDetails struct {
+	assetUid     string `json:"assetUid"`
 	assetDetails string `json:"assetDetails"`
 }
 
-func (abs *AbsChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response{
+func (abs *AbsChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("Invoke start!")
 	// 1. get args
 	function, args := stub.GetFunctionAndParameters()
@@ -114,19 +114,18 @@ func (abs *AbsChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response{
 	fmt.Println("parameters ok !")
 	fmt.Println("bizContent " + bizContent)
 
-
 	// 2. check write access
-	//err := checkValidity(stub, function, org, category)
-	//if err != nil {
-	//	return shim.Error(err.Error())
-	//}
+	err := checkValidity(stub, function, org)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
 
 	// TODO  3. extract assetDetails from bizContent
 	//keyToPut := assetUID + separatorUnderscore + category
 
-	bizContentJson,_ := simplejson.NewJson([]byte(bizContent))
+	bizContentJson, _ := simplejson.NewJson([]byte(bizContent))
 	assets, _ := bizContentJson.Get("assets").Array()
-	for i,_ := range assets {
+	for i, _ := range assets {
 		asset := bizContentJson.Get("assets").GetIndex(i)
 		assetUid := asset.Get("assetUid")
 		assetDetail := asset.Get("assetDetails")
@@ -260,7 +259,7 @@ func checkValidity(stub shim.ChaincodeStubInterface, stageToPut, org string) err
 		return errors.New(errorCodeNoWriteAccess + " Check write access failed")
 	}
 
-	fmt.Println("access check passed. " + stageToPut + org  )
+	fmt.Println("access check passed. " + stageToPut + org)
 	return nil
 
 }

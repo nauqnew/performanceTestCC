@@ -17,8 +17,8 @@
       <file leaf-file-name="performance_cc.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/performance_cc.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="135" column="55" lean-forward="true" selection-start-line="135" selection-start-column="55" selection-end-line="135" selection-end-column="55" />
+            <state relative-caret-position="-72">
+              <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
               <folding>
                 <element signature="e#14#341#0" expanded="true" />
               </folding>
@@ -59,8 +59,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/performance_cc.go" />
         <option value="$PROJECT_DIR$/performance_cc_test.go" />
+        <option value="$PROJECT_DIR$/performance_cc.go" />
       </list>
     </option>
   </component>
@@ -335,8 +335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/performance_cc.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="135" column="55" lean-forward="true" selection-start-line="135" selection-start-column="55" selection-end-line="135" selection-end-column="55" />
+        <state relative-caret-position="-72">
+          <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
           <folding>
             <element signature="e#14#341#0" expanded="true" />
           </folding>
