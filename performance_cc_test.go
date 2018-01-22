@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"testing"
 
+	//"github.com/bitly/go-simplejson"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -51,7 +52,7 @@ func checkInvokeAssetUpload(t *testing.T, stub *shim.MockStub, args [][]byte) {
 		fmt.Println("Invoke", args, "failed", string(res.Message))
 		t.FailNow()
 	}
-	keyToCheck := "160815609421112015_CAT_ASSET_UPLOAD"
+	keyToCheck := "160815609421112015"
 	valueToCheck := "160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001"
 	valueToCheckBytes := []byte(valueToCheck)
 	checkState(t, stub, keyToCheck, string(valueToCheckBytes))
@@ -76,11 +77,50 @@ func TestAbs_Invoke(t *testing.T) {
 	checkInit(t, stub, [][]byte{[]byte("init")})
 
 	//1. invoke ASSET_UPLOAD {function, orgCode, assetUID, outTradeNo, category, previousTxID, businesshash, bizcontent}
-	bizContent := "{\"assetDetails\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
+	//bizContent := "{\"assetDetails\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
+
+	bizContent := `{
+        "assets":[
+            {
+                "assetUid":"160815609421112015",
+                "assetDetails":"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001"
+            },
+            {
+                "assetUid":"160815609421112017",
+                "assetDetails":"160815609421112017,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001"
+            }
+        ]
+    }`
 	assetUploadArgs := [][]byte{[]byte("ASSET_UPLOAD"), []byte("jyzb"), []byte("160815609421112015"), []byte("jyzb0001"), []byte("CAT_ASSET_UPLOAD"), []byte(""), []byte(""), []byte(bizContent)}
 	checkInvokeAssetUpload(t, stub, assetUploadArgs)
 
 }
+
+/*func TestStringJson(t *testing.T){
+	bizContent := `{
+        "assets":[
+            {
+                "assetUid":"160815609421112015",
+                "assetDetails":"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001"
+            },
+            {
+                "assetUid":"160815609421112017",
+                "assetDetails":"160815609421112017,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001"
+            }
+        ]
+    }`
+	bizContentJson,_ := simplejson.NewJson([]byte(bizContent))
+	assets, _ := bizContentJson.Get("assets").Array()
+	for i,_ := range assets {
+		asset := bizContentJson.Get("assets").GetIndex(i)
+		assetUid := asset.Get("assetUid")
+		assetDetail := asset.Get("assetDetails")
+		fmt.Println(assetUid.String())
+		fmt.Println(assetDetail.String())
+	}
+
+
+	}*/
 
  func TestAbs_Query(t *testing.T){
 	 absChaincode := new(AbsChaincode)
@@ -97,7 +137,4 @@ func TestAbs_Invoke(t *testing.T) {
 
 	response := "{\"Key\":\"160815609421112015_CAT_ASSET_UPLOAD\",\"Value\":\"160815609421112015,***n66_m,2016-08-15 20:41:30,2017-08-15 23:59:59,12,2399,199.92,0,24,0,3,3,1,1,HT201606300001\"}"
 	 checkQuery(t, stub, "160815609421112015_CAT_ASSET_UPLOAD", response)
-
-
-
  }

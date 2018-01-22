@@ -17,6 +17,12 @@
 			"revisionTime": "2017-07-11T12:18:19Z"
 		},
 		{
+			"checksumSHA1": "0EhLvZ6Og9HYqJtCc2Dzs1EgM30=",
+			"path": "github.com/bitly/go-simplejson",
+			"revision": "0c965951289cce37dec52ad1f34200fefc816777",
+			"revisionTime": "2017-10-23T17:51:54Z"
+		},
+		{
 			"checksumSHA1": "fXAinpJ5bOcborK7AiO1rnW60BI=",
 			"origin": "github.com/hyperledger/fabric/vendor/github.com/docker/docker/opts",
 			"path": "github.com/docker/docker/opts",

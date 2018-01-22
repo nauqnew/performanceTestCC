@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aecab416-7b78-4a88-8733-b161677e3a5e" name="Default" comment="" />
+    <list default="true" id="aecab416-7b78-4a88-8733-b161677e3a5e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/performance_cc.go" afterPath="$PROJECT_DIR$/performance_cc.go" />
+      <change beforePath="$PROJECT_DIR$/performance_cc_test.go" afterPath="$PROJECT_DIR$/performance_cc_test.go" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,10 +17,10 @@
       <file leaf-file-name="performance_cc.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/performance_cc.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="119" column="42" lean-forward="false" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="42" />
+            <state relative-caret-position="617">
+              <caret line="135" column="55" lean-forward="true" selection-start-line="135" selection-start-column="55" selection-end-line="135" selection-end-column="55" />
               <folding>
-                <element signature="e#14#308#0" expanded="true" />
+                <element signature="e#14#341#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -26,10 +29,10 @@
       <file leaf-file-name="performance_cc_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/performance_cc_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="26" />
+            <state relative-caret-position="178">
+              <caret line="54" column="38" lean-forward="true" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
               <folding>
-                <element signature="e#14#112#0" expanded="true" />
+                <element signature="e#14#148#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,11 +53,14 @@
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.9.2/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/performance_cc_test.go" />
         <option value="$PROJECT_DIR$/performance_cc.go" />
+        <option value="$PROJECT_DIR$/performance_cc_test.go" />
       </list>
     </option>
   </component>
@@ -89,6 +95,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -149,7 +156,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestAbs_Invoke in performance_cc_test.go">
+    <configuration name="TestAbs_Init in performance_cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="performanceTestCC" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="performanceTestCC" />
+      <pattern value="^TestAbs_Init$" />
+    </configuration>
+    <configuration name="TestAbs_Invoke in performance_cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="performanceTestCC" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="performanceTestCC" />
+      <pattern value="^TestAbs_Invoke$" />
+    </configuration>
+    <configuration name="TestStringJson in performance_cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="performanceTestCC" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="performanceTestCC" />
+      <pattern value="^TestStringJson$" />
+    </configuration>
     <configuration name="performance_cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="performanceTestCC" />
       <working_directory value="$PROJECT_DIR$" />
@@ -159,9 +193,18 @@
       <package value="performanceTestCC" />
       <filePath value="$PROJECT_DIR$/performance_cc_test.go" />
     </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Go Test.performance_cc_test.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Test.TestAbs_Invoke in performance_cc_test.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Test.TestAbs_Init in performance_cc_test.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.TestStringJson in performance_cc_test.go" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Go Test.performance_cc_test.go" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Go Test.TestAbs_Invoke in performance_cc_test.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.TestStringJson in performance_cc_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.TestAbs_Init in performance_cc_test.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Test.performance_cc_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -169,20 +212,20 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="performance_cc_test_go - 2018.01.18 at 16h 27m 52s.xml">
-      <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAbs_Invoke_in_performance_cc_test_go - 2018.01.22 at 14h 42m 35s.xml">
+      <configuration name="TestAbs_Invoke in performance_cc_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="performance_cc_test_go - 2018.01.18 at 16h 28m 36s.xml">
-      <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAbs_Invoke_in_performance_cc_test_go - 2018.01.22 at 14h 44m 09s.xml">
+      <configuration name="TestAbs_Invoke in performance_cc_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="performance_cc_test_go - 2018.01.18 at 16h 59m 24s.xml">
-      <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAbs_Invoke_in_performance_cc_test_go - 2018.01.22 at 15h 21m 20s.xml">
+      <configuration name="TestAbs_Invoke in performance_cc_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="performance_cc_test_go - 2018.01.18 at 17h 02m 05s.xml">
-      <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAbs_Invoke_in_performance_cc_test_go - 2018.01.22 at 15h 26m 24s.xml">
+      <configuration name="TestAbs_Invoke in performance_cc_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="performance_cc_test_go - 2018.01.18 at 17h 08m 29s.xml">
-      <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestAbs_Invoke_in_performance_cc_test_go - 2018.01.22 at 15h 27m 03s.xml">
+      <configuration name="TestAbs_Invoke in performance_cc_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="performance_cc_test_go - 2018.01.18 at 17h 10m 07s.xml">
       <configuration name="performance_cc_test.go" configurationId="GoTestRunConfiguration" />
@@ -208,8 +251,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49618322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2977099" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -230,7 +273,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -239,7 +284,7 @@
         <state relative-caret-position="3060">
           <caret line="186" column="36" lean-forward="false" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="36" />
           <folding>
-            <element signature="e#14#308#0" expanded="true" />
+            <element signature="e#14#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -249,7 +294,7 @@
         <state relative-caret-position="1258">
           <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="26" />
           <folding>
-            <element signature="e#14#112#0" expanded="true" />
+            <element signature="e#14#148#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -270,22 +315,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/bitly/go-simplejson/simplejson.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="206" column="15" lean-forward="false" selection-start-line="206" selection-start-column="15" selection-end-line="206" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/performance_cc_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="26" />
+        <state relative-caret-position="178">
+          <caret line="54" column="38" lean-forward="true" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
           <folding>
-            <element signature="e#14#112#0" expanded="true" />
+            <element signature="e#14#148#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/performance_cc.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="119" column="42" lean-forward="false" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="42" />
+        <state relative-caret-position="617">
+          <caret line="135" column="55" lean-forward="true" selection-start-line="135" selection-start-column="55" selection-end-line="135" selection-end-column="55" />
           <folding>
-            <element signature="e#14#308#0" expanded="true" />
+            <element signature="e#14#341#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -9,7 +9,7 @@ import (
 	"fmt"
 
 	"encoding/hex"
-
+	"github.com/bitly/go-simplejson"
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	msp "github.com/hyperledger/fabric/protos/msp"
@@ -47,10 +47,6 @@ type Stage struct {
 type BusinessFlow struct {
 	Stages     []*Stage `json:"stages"`     // All possible stages
 	Categories []string `json:"categories"` // All possible categories
-}
-
-type BizContent struct{
-	AssetDetails string `json:"assetDetails"`
 }
 
 // AbsChaincode implements chaincode
@@ -92,6 +88,15 @@ func (abs *AbsChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response{
 
 }
 
+type BizContent struct{
+	assets []AssetDetails `json:"assets"`
+}
+
+type AssetDetails struct{
+	assetUid string `json:"assetUid"`
+	assetDetails string `json:"assetDetails"`
+}
+
 func (abs *AbsChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response{
 	fmt.Println("Invoke start!")
 	// 1. get args
@@ -103,35 +108,37 @@ func (abs *AbsChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response{
 		return shim.Error(errorCodeIncorrectArgumentNumber + " Incorrect number of arguments. Expecting 7")
 	}
 	org := args[0]
-	assetUID := args[1]
-	category := args[3]
+	//category := args[3]
 	bizContent := args[6]
 
 	fmt.Println("parameters ok !")
+	fmt.Println("bizContent " + bizContent)
+
+
 	// 2. check write access
-	err := checkValidity(stub, function, org, assetUID, category)
-	if err != nil {
-		return shim.Error(err.Error())
-	}
+	//err := checkValidity(stub, function, org, category)
+	//if err != nil {
+	//	return shim.Error(err.Error())
+	//}
 
 	// TODO  3. extract assetDetails from bizContent
-	keyToPut := assetUID + separatorUnderscore + category
-	biz:= &BizContent{}
-	err = json.Unmarshal([]byte(bizContent), biz)
-	if err != nil{
-		fmt.Println("bizContent can not be unmarshaled")
-	}
+	//keyToPut := assetUID + separatorUnderscore + category
 
-	fmt.Println("put state  begin !")
-	valueToPutBytes:= []byte(biz.AssetDetails)
-	if err != nil {
-		return shim.Error(errorCodeOperationError + " Marshal current state failed. " + err.Error())
+	bizContentJson,_ := simplejson.NewJson([]byte(bizContent))
+	assets, _ := bizContentJson.Get("assets").Array()
+	for i,_ := range assets {
+		asset := bizContentJson.Get("assets").GetIndex(i)
+		assetUid := asset.Get("assetUid")
+		assetDetail := asset.Get("assetDetails")
+		keyToPut, _ := assetUid.String()
+		valueToput, _ := assetDetail.String()
+		valueToPutBytes := []byte(valueToput)
+		err := stub.PutState(keyToPut, valueToPutBytes)
+		if err != nil {
+			return shim.Error(errorCodePutStateError + " Put state (current stage and txID) failed. " + err.Error())
+		}
+		fmt.Println(keyToPut + " : " + valueToput)
 	}
-	err = stub.PutState(keyToPut, valueToPutBytes)
-	if err != nil {
-		return shim.Error(errorCodePutStateError + " Put state (current stage and txID) failed. " + err.Error())
-	}
-
 	fmt.Println("Invoke chaincode succeed. " + "Type: " + function + ". Operator: " + org)
 
 	return shim.Success(nil)
@@ -205,7 +212,7 @@ func getPubKeyFromIdentity(identityBytes []byte) (string, error) {
 }
 
 // 校验有效性，权限校验
-func checkValidity(stub shim.ChaincodeStubInterface, stageToPut, org, assetUID, category string) error {
+func checkValidity(stub shim.ChaincodeStubInterface, stageToPut, org string) error {
 	// 1. get business flow
 	businessFlowBytes, err := stub.GetState(businessFlowKey)
 	if err != nil {
@@ -227,9 +234,9 @@ func checkValidity(stub shim.ChaincodeStubInterface, stageToPut, org, assetUID, 
 	}
 
 	// 3. check category
-	if stageInstance.Category != category {
-		return errors.New(errorCodeIncorrectCategory + " Incorrect category received")
-	}
+	//if stageInstance.Category != category {
+	//	return errors.New(errorCodeIncorrectCategory + " Incorrect category received")
+	//}
 
 	// 4. check write access
 	if stageInstance.Operator != org {
@@ -253,7 +260,7 @@ func checkValidity(stub shim.ChaincodeStubInterface, stageToPut, org, assetUID, 
 		return errors.New(errorCodeNoWriteAccess + " Check write access failed")
 	}
 
-	fmt.Println("access check passed. " + stageToPut + org + assetUID + category)
+	fmt.Println("access check passed. " + stageToPut + org  )
 	return nil
 
 }
